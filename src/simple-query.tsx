@@ -20,14 +20,15 @@ const QUERY = gql`
   }
 `;
 
-const MyComponent = (): ReactElement => {
+const SimpleQuery = (): ReactElement => {
   const {data, loading, error} = useQuery<Users>(QUERY);
 
   if (loading) {
-    return <Text>'Loading...'</Text>;
+    return <Text style={styles.text}>Loading...</Text>;
   }
+
   if (error) {
-    return <Text>{error.message}</Text>;
+    return <Text style={styles.text}>{error.message}</Text>;
   }
 
   return (
@@ -47,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MyComponent;
+export default SimpleQuery;
